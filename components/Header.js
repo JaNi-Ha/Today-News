@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
   text-align: center;
-  padding: 50px 0;
+  padding: 250px 0;
   background: url('https://cdn.pixabay.com/photo/2018/08/21/17/26/korea-3621711_1280.jpg') no-repeat center center;
   background-size: cover;
   color: white;
@@ -53,7 +53,7 @@ const Header = () => {
     <HeaderContainer>
       <Title>Card News</Title>
       <Subtitle>음료 마케터의 최신 뉴스</Subtitle>
-      <Button href="#">View Latest Posts</Button>
+      <Button href="#">원하는 키워드 검색</Button>
     </HeaderContainer>
   );
 };

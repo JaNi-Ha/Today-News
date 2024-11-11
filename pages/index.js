@@ -1,40 +1,9 @@
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import NewsCard from '../components/Card';
 import Category from '../components/Category';
 import styled from 'styled-components';
-
-const posts = [
-  {
-    title: "The Road Ahead",
-    date: "September 25, 2015",
-    image: "/path/to/image1.jpg",
-    category: "Photography",
-  },
-  {
-    title: "From Top Down",
-    date: "September 25, 2015",
-    image: "/path/to/image2.jpg",
-    category: "Adventure",
-  },
-  {
-    title: "Still Standing Tall",
-    date: "September 25, 2015",
-    image: "/path/to/image3.jpg",
-    category: "Nature",
-  },
-  {
-    title: "Sunny Side Up",
-    date: "September 25, 2015",
-    image: "/path/to/image4.jpg",
-    category: "Photography",
-  },
-  {
-    title: "Water Falls",
-    date: "September 25, 2015",
-    image: "/path/to/image5.jpg",
-    category: "Relaxation",
-  },
-];
+import Swal from 'sweetalert2';
 
 const Container = styled.div`
   display: flex;
@@ -49,22 +18,34 @@ const FeaturedPostsTitle = styled.h2`
 `;
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxOH9F2SpN1iqVE0H4kH5RGlj2pPnUNqRJ87Fo47vleBk-Elu6pF4B7ImlZ5AcnMlVX/exec');
+      const data = await response.json();
+      setPosts(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Header />
       <Category />
-      <FeaturedPostsTitle>주목할 기사</FeaturedPostsTitle>
+      <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
       <Container>
-        {posts.slice(0, 2).map((post, index) => (
-          <NewsCard key={index} title={post.title} date={post.date} image={post.image} category={post.category} />
+        {posts.map((post, index) => (
+          <NewsCard
+            key={index}
+            title={post.제목}
+            date={new Date(post.날짜).toLocaleDateString()}
+            content={post.내용}
+            category={post.카테고리}
+            imageUrl={post.이미지}
+          />
         ))}
-      </Container>
-      <FeaturedPostsTitle>최근 기사</FeaturedPostsTitle>
-      <Container>
-        {posts.slice(2).map((post, index) => (
-          <NewsCard key={index} title={post.title} date={post.date} image={post.image} category={post.category} />
-        ))}
-
       </Container>
     </>
   );
