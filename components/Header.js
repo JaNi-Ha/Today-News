@@ -52,7 +52,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Title>Card News</Title>
-      <Subtitle>We travel the world in search of stories. Come along for the ride.</Subtitle>
+      <Subtitle>음료 마케터의 최신 뉴스</Subtitle>
       <Button href="#">View Latest Posts</Button>
     </HeaderContainer>
   );
