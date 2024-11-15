@@ -1,19 +1,9 @@
-npm install @vercel/analytics
-
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import NewsCard from '../components/Card';
 import Category from '../components/Category';
 import styled from 'styled-components';
 import Swal from 'sweetalert2';
-import { Analytics } from '@vercel/analytics/react';
-
-root.render(
-  <Router>
-    <RouteApp />
-	  <Analytics/>
-  </Router>
-);
 
 const Container = styled.div`
   display: flex;
