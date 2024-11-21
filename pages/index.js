@@ -4,7 +4,6 @@ import NewsCard from '../components/Card';
 import Category from '../components/Category';
 import styled from 'styled-components';
 import Swal from 'sweetalert2';
-import Link from 'next/link';
 
 const Container = styled.div`
   display: flex;
@@ -48,9 +47,6 @@ export default function Home() {
           />
         ))}
       </Container>
-      <Link href="/news/today">
-        <button>CM1</button>
-      </Link>
     </>
   );
 }
