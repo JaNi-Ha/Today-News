@@ -4,6 +4,7 @@ import NewsCard from '../components/Card';
 import Category from '../components/Category';
 import styled from 'styled-components';
 import Swal from 'sweetalert2';
+import Link from 'next/link';
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +31,25 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const newsData = {
+    CM1: [
+      { title: 'CM1 뉴스 제목 1', content: 'CM1 관련 뉴스 내용 1' },
+      { title: 'CM1 뉴스 제목 2', content: 'CM1 관련 뉴스 내용 2' },
+    ],
+    CM2: [
+      { title: 'CM2 뉴스 제목 1', content: 'CM2 관련 뉴스 내용 1' },
+      { title: 'CM2 뉴스 제목 2', content: 'CM2 관련 뉴스 내용 2' },
+    ],
+    CM3: [
+      { title: 'CM3 뉴스 제목 1', content: 'CM3 관련 뉴스 내용 1' },
+      { title: 'CM3 뉴스 제목 2', content: 'CM3 관련 뉴스 내용 2' },
+    ],
+    신사업팀: [
+      { title: '신사업팀 뉴스 제목 1', content: '신사업팀 관련 뉴스 내용 1' },
+      { title: '신사업팀 뉴스 제목 2', content: '신사업팀 관련 뉴스 내용 2' },
+    ],
+  };
+
   return (
     <>
       <Header />
@@ -47,6 +67,18 @@ export default function Home() {
           />
         ))}
       </Container>
+      <Link href="/news/CM1">
+        <button>CM1</button>
+      </Link>
+      <Link href="/news/CM2">
+        <button>CM2</button>
+      </Link>
+      <Link href="/news/CM3">
+        <button>CM3</button>
+      </Link>
+      <Link href="/news/신사업팀">
+        <button>신사업팀</button>
+      </Link>
     </>
   );
 }
