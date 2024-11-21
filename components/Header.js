@@ -53,7 +53,7 @@ const Header = () => {
     <HeaderContainer>
       <Title>Card News</Title>
       <Subtitle>음료 마케터의 최신 뉴스</Subtitle>
-      <Button href="#">원하는 키워드 검색</Button>
+      <Button href="#">원하는 키워드</Button>
     </HeaderContainer>
   );
 };
