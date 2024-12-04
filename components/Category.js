@@ -29,6 +29,7 @@ const Category = ({ setSelectedCategory }) => {
             <CategoryButton onClick={() => setSelectedCategory('CM3')}>CM3</CategoryButton>
             <CategoryButton onClick={() => setSelectedCategory('신사업팀')}>신사업팀</CategoryButton>
             <CategoryButton onClick={() => setSelectedCategory('신제품')}>신제품</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('기타')}>기타</CategoryButton>
         </CategoryContainer>
     );
 };
