@@ -20,14 +20,14 @@ const CategoryButton = styled.button`
     }
 `;
 
-const Category = () => {
+const Category = ({ setSelectedCategory }) => {
     return (
         <CategoryContainer>
-            <CategoryButton>CM1</CategoryButton>
-            <CategoryButton>CM2</CategoryButton>
-            <CategoryButton>CM3</CategoryButton>
-            <CategoryButton>신사업팀</CategoryButton>
-            <CategoryButton>신제품</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('CM1')}>CM1</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('CM2')}>CM2</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('CM3')}>CM3</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('신사업팀')}>신사업팀</CategoryButton>
+            <CategoryButton onClick={() => setSelectedCategory('신제품')}>신제품</CategoryButton>
         </CategoryContainer>
     );
 };
