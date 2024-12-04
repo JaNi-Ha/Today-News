@@ -72,7 +72,7 @@ const NewsCard = ({ title, date, content, category, imageUrl, sourceUrl }) => {
   const handleClick = () => {
     Swal.fire({
       title: title,
-      html: content.split('. ').map(sentence => `<p>${sentence.trim()}</p>`).join(''),
+      html: content.split('. ').map(sentence => `<p style="margin-bottom: 10px; text-align: left;">${sentence.trim()}</p>`).join(''),
       icon: 'info',
       confirmButtonText: 'Close',
       footer: `<a href="${sourceUrl}" target="_blank">출처</a>`,
