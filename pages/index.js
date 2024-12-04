@@ -19,6 +19,7 @@ const FeaturedPostsTitle = styled.h2`
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,13 +31,17 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const filteredPosts = selectedCategory
+    ? posts.filter(post => post.카테고리 === selectedCategory)
+    : posts;
+
   return (
     <>
       <Header />
-      <Category />
+      <Category setSelectedCategory={setSelectedCategory} />
       <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
       <Container>
-        {posts.map((post, index) => (
+        {filteredPosts.map((post, index) => (
           <NewsCard
             key={index}
             title={post.제목}
