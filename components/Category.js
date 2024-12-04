@@ -27,6 +27,7 @@ const Category = () => {
             <CategoryButton>CM2</CategoryButton>
             <CategoryButton>CM3</CategoryButton>
             <CategoryButton>신사업팀</CategoryButton>
+            <CategoryButton>신제품</CategoryButton>
         </CategoryContainer>
     );
 };
