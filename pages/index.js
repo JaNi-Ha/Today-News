@@ -50,6 +50,7 @@ export default function Home() {
             content={post.내용}
             category={post.카테고리}
             imageUrl={post.이미지}
+            sourceUrl={post.출처}
           />
         ))}
       </Container>
