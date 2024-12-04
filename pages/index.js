@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import NewsCard from '../components/Card';
 import Category from '../components/Category';
 import styled from 'styled-components';
-import Swal from 'sweetalert2';
 
 const Container = styled.div`
   display: flex;
@@ -31,7 +30,9 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const filteredPosts = selectedCategory
+  const filteredPosts = selectedCategory === '기타'
+    ? posts.filter(post => !['CM1', 'CM2', 'CM3', '신사업팀', '신제품'].includes(post.카테고리))
+    : selectedCategory
     ? posts.filter(post => post.카테고리 === selectedCategory)
     : posts;
 
