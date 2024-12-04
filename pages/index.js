@@ -16,9 +16,19 @@ const FeaturedPostsTitle = styled.h2`
   margin: 20px 0;
 `;
 
+const SearchInput = styled.input`
+  width: 300px;
+  padding: 10px;
+  margin: 20px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,15 +40,21 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const filteredPosts = selectedCategory === '기타'
-    ? posts.filter(post => !['CM1', 'CM2', 'CM3', '신사업팀', '신제품'].includes(post.카테고리))
-    : selectedCategory
-    ? posts.filter(post => post.카테고리 === selectedCategory)
-    : posts;
+  const filteredPosts = posts.filter(post => {
+    const matchesCategory = selectedCategory ? post.카테고리 === selectedCategory || (selectedCategory === '기타' && !['CM1', 'CM2', 'CM3', '신사업팀', '신제품'].includes(post.카테고리)) : true;
+    const matchesSearch = post.제목.includes(searchTerm) || post.내용.includes(searchTerm);
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <>
       <Header />
+      <SearchInput 
+        type="text" 
+        placeholder="원하는 키워드 검색" 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <Category setSelectedCategory={setSelectedCategory} />
       <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
       <Container>
