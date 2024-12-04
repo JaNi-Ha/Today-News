@@ -68,13 +68,14 @@ const Category = styled.span`
   font-weight: bold;
 `;
 
-const NewsCard = ({ title, date, content, category, imageUrl }) => {
+const NewsCard = ({ title, date, content, category, imageUrl, sourceUrl }) => {
   const handleClick = () => {
     Swal.fire({
       title: title,
-      text: content,
+      html: content.split('. ').map(sentence => `<p>${sentence.trim()}</p>`).join(''),
       icon: 'info',
       confirmButtonText: 'Close',
+      footer: `<a href="${sourceUrl}" target="_blank">출처</a>`,
     });
   };
 
