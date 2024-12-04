@@ -23,6 +23,7 @@ const CategoryButton = styled.button`
 const Category = ({ setSelectedCategory }) => {
     return (
         <CategoryContainer>
+            <CategoryButton onClick={() => setSelectedCategory('')}>전체</CategoryButton>
             <CategoryButton onClick={() => setSelectedCategory('CM1')}>CM1</CategoryButton>
             <CategoryButton onClick={() => setSelectedCategory('CM2')}>CM2</CategoryButton>
             <CategoryButton onClick={() => setSelectedCategory('CM3')}>CM3</CategoryButton>
