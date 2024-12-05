@@ -25,11 +25,6 @@ const SearchInput = styled.input`
   border-radius: 5px;
 `;
 
-const HeaderContainer = styled.div`
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -53,16 +48,13 @@ export default function Home() {
 
   return (
     <>
-      <HeaderContainer>
-        <h1>Card News</h1>
-        <p>음료 마케터의 최신 뉴스</p>
-        <SearchInput 
-          type="text" 
-          placeholder="원하는 키워드 검색" 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </HeaderContainer>
+      <Header />
+      <SearchInput 
+        type="text" 
+        placeholder="원하는 키워드 검색" 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <Category setSelectedCategory={setSelectedCategory} />
       <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
       <Container>
