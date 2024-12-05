@@ -49,6 +49,7 @@ export default function Home() {
             title={post.제목}
             date={new Date(post.날짜).toLocaleDateString()}
             content={post.내용}
+            summary={post.요약}
             category={post.카테고리}
             imageUrl={post.이미지}
             sourceUrl={post.출처}
