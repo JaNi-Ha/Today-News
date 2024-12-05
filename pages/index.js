@@ -25,6 +25,7 @@ export default function Home() {
     const fetchData = async () => {
       const response = await fetch('https://script.google.com/macros/s/AKfycbxOH9F2SpN1iqVE0H4kH5RGlj2pPnUNqRJ87Fo47vleBk-Elu6pF4B7ImlZ5AcnMlVX/exec');
       const data = await response.json();
+      console.log(data);
       setPosts(data);
     };
 
@@ -37,24 +38,30 @@ export default function Home() {
     return matchesCategory && matchesSearch;
   });
 
+  console.log(filteredPosts);
+
   return (
     <>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <Category setSelectedCategory={setSelectedCategory} />
       <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
       <Container>
-        {filteredPosts.map((post, index) => (
-          <NewsCard
-            key={index}
-            title={post.제목}
-            date={new Date(post.날짜).toLocaleDateString()}
-            content={post.내용}
-            summary={post.요약}
-            category={post.카테고리}
-            imageUrl={post.이미지}
-            sourceUrl={post.출처}
-          />
-        ))}
+        {filteredPosts.length === 0 ? (
+          <p>결과가 없습니다.</p>
+        ) : (
+          filteredPosts.map((post, index) => (
+            <NewsCard
+              key={index}
+              title={post.제목}
+              date={new Date(post.날짜).toLocaleDateString()}
+              content={post.내용}
+              summary={post.요약}
+              category={post.카테고리}
+              imageUrl={post.이미지}
+              sourceUrl={post.출처}
+            />
+          ))
+        )}
       </Container>
     </>
   );
