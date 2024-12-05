@@ -48,11 +48,26 @@ const Button = styled.a`
   }
 `;
 
-const Header = () => {
+const SearchInput = styled.input`
+  width: 300px;
+  padding: 10px;
+  margin: 20px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+const Header = ({ searchTerm, setSearchTerm }) => {
   return (
     <HeaderContainer>
       <Title>Card News</Title>
       <Subtitle>음료 마케터의 최신 뉴스</Subtitle>
+      <SearchInput 
+        type="text" 
+        placeholder="원하는 키워드 검색" 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <Button href="#">원하는 키워드</Button>
     </HeaderContainer>
   );
