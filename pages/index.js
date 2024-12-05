@@ -16,6 +16,15 @@ const FeaturedPostsTitle = styled.h2`
   margin: 20px 0;
 `;
 
+const SearchInput = styled.input`
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+`;
+
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -37,11 +46,21 @@ export default function Home() {
     return matchesCategory && matchesSearch;
   });
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <Category setSelectedCategory={setSelectedCategory} />
       <FeaturedPostsTitle>오늘의 뉴스</FeaturedPostsTitle>
+      <SearchInput 
+        type="text" 
+        placeholder="원하는 키워드 검색" 
+        value={searchTerm} 
+        onChange={handleSearch}
+      />
       <Container>
         {filteredPosts.map((post, index) => (
           <NewsCard
