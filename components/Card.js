@@ -35,6 +35,12 @@ const Title = styled.h3`
   font-family: 'Freesentation', sans-serif;
   font-weight: 700;
   text-align: center;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Date = styled.p`
