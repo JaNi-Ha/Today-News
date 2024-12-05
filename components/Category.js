@@ -11,7 +11,7 @@ const CategoryButton = styled.button`
     background-color: #e0e0e0;
     border: none;
     border-radius: 5px;
-    padding: 15px 50px;
+    padding: 10px 70px;
     cursor: pointer;
     transition: background-color 0.3s;
 
