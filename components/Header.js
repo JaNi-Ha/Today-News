@@ -40,7 +40,8 @@ const SearchInput = styled.input`
   display: block;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
   position: relative;
   z-index: 2;
 `;
