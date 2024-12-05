@@ -52,6 +52,7 @@ export default function Home() {
             category={post.카테고리}
             imageUrl={post.이미지}
             sourceUrl={post.출처}
+            keywords={post.keywords}
           />
         ))}
       </Container>
