@@ -33,21 +33,6 @@ const Subtitle = styled.p`
   font-size: 1.2em;
 `;
 
-const Button = styled.a`
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #ff6347;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s;
-
-  &:hover {
-    background: #ff4500;
-  }
-`;
-
 const SearchInput = styled.input`
   width: 300px;
   padding: 10px;
@@ -68,7 +53,6 @@ const Header = ({ searchTerm, setSearchTerm }) => {
         value={searchTerm} 
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button href="#">원하는 키워드</Button>
     </HeaderContainer>
   );
 };
