@@ -10,11 +10,10 @@ const Card = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -29,24 +28,12 @@ const CardContent = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
-const Summary = styled.p`
-  font-size: 0.9em;
-  color: #555;
-  margin: 10px 0 0;
-`;
-
 const Title = styled.h3`
   margin: 0;
   font-size: 1.2em;
   font-family: 'Freesentation', sans-serif;
   font-weight: 700;
   text-align: center;
-  display: -webkit-box;
-  display: box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 const Date = styled.p`
@@ -79,6 +66,12 @@ const Category = styled.span`
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
+`;
+
+const Summary = styled.p`
+  font-size: 0.9em;
+  color: #000;
+  margin: 10px 0 0;
 `;
 
 const NewsCard = ({ title, date, content, summary, category, imageUrl, sourceUrl }) => {
