@@ -10,10 +10,11 @@ const Card = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   }
 `;
 
