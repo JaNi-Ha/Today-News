@@ -40,6 +40,9 @@ const SearchInput = styled.input`
   display: block;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: white;
+  position: relative;
+  z-index: 2;
 `;
 
 const Header = ({ searchTerm, setSearchTerm }) => {
