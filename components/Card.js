@@ -38,16 +38,9 @@ const Title = styled.h3`
   display: -webkit-box;
   display: box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
-
-const Summary = styled.p`
-  margin: 5px 0;
-  font-size: 0.9em;
-  color: #555;
-  text-align: center;
 `;
 
 const Date = styled.p`
@@ -82,7 +75,7 @@ const Category = styled.span`
   font-weight: bold;
 `;
 
-const NewsCard = ({ title, date, content, category, imageUrl, sourceUrl, keywords }) => {
+const NewsCard = ({ title, date, content, category, imageUrl, sourceUrl }) => {
   const handleClick = () => {
     Swal.fire({
       title: title,
@@ -105,7 +98,6 @@ const NewsCard = ({ title, date, content, category, imageUrl, sourceUrl, keyword
       />
       <Category category={category}>{category}</Category>
       <Title>{title}</Title>
-      <Summary>{keywords.join(', ')}</Summary>
       <Date>{date}</Date>
       <CardContent>
         {/* 내용은 팝업에서 표시하므로 여기서는 비워둡니다. */}
